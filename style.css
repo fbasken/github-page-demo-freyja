@@ -152,23 +152,23 @@ h2 {
 }
 
 /* Project Cards */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
 .project-card {
     background: var(--card-bg);
     border-radius: 12px;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s, border-color 0.3s;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+@keyframes pulse-glow {
+    0% { border-color: var(--accent-primary); box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
+    50% { border-color: var(--accent-secondary); box-shadow: 0 0 20px rgba(129, 140, 248, 0.4); }
+    100% { border-color: var(--accent-primary); box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-primary);
+    animation: pulse-glow 2s infinite ease-in-out;
 }
 
 .project-tag {
